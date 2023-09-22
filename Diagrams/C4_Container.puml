@@ -1,0 +1,69 @@
+@startuml FriendlyTravel_Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(passenger, "Passenger", "A person who wants to travel")
+Person(driver, "Driver", "A person who offers rides")
+
+System_Boundary(c1, "Friendly Travel") {
+
+    ContainerDb(frontend_s3, "Frontend S3", "Object Storage", "Stores frontend assets")
+
+    Container(cloudfront, "CloudFront", "CDN", "Distributes frontend")
+
+    Container(web_app, "Web App", "ReactJS", "Delivers the UI")
+
+    Container(api, "API Gateway", "Java/ MVC", "Provides API for frontend")
+
+    ContainerDb(db, "Database", "DynamoDB", "Stores user profiles, rides, reviews")
+
+    Container(lambda, "Lambda Functions", "Java", "Serverless functions")
+
+    Container(textract, "Textract", "OCR Service", "Extracts text from images")
+
+    Container(images_s3, "Images S3", "Object Storage", "Stores images")
+
+    Container(cognito, "Cognito", "Auth Service", "Provides authentication")
+
+    Container(cloudwatch, "CloudWatch", "Monitoring", "Metrics & logging")
+
+    Container(ses, "SES", "Email Service", "Sends emails")
+
+    Container(cloudformation, "CloudFormation", "IaC", "Manages infrastructure and services")
+
+    Rel(web_app, cloudfront, "Served via", "HTTP")
+
+    Rel(cloudfront, frontend_s3, "Pulls files from")
+
+    Rel(web_app, api, "Makes API calls to", "JSON/HTTPS")
+
+    Rel(web_app, cognito, "Uses for auth", "AWS SDK")
+
+    Rel(api, lambda, "Invokes", "JSON/HTTPS")
+
+    Rel(lambda, textract, "Uses for OCR", "AWS SDK")
+
+    Rel(textract, images_s3, "Reads images from", "AWS SDK")
+
+    Rel(lambda, db, "Reads & writes", "DynamoDB SDK")
+
+    Rel(lambda, cloudwatch, "")
+
+    Rel(api, cloudwatch, "Sends logs & metrics to")
+
+    Rel(lambda, ses, "Uses to send emails")
+
+    Rel(cloudformation, api, "Deploys all services")
+
+}
+
+System_Ext(googlemaps, "Google Maps", "Mapping API")
+System_Ext(whatsapp, "WhatsApp", "Desktop / Mobile")
+
+Rel(web_app, googlemaps, "Uses for maps")
+Rel(web_app, whatsapp, "Uses for communication between users", "WhatsApp redirection")
+
+Rel(passenger, web_app, "Uses")
+Rel(driver, web_app, "Uses")
+
+@enduml
