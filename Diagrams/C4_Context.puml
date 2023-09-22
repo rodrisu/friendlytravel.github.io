@@ -1,0 +1,20 @@
+@startuml FriendlyTravel_Context
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+System(friendlytravel, "Friendly Travel", "Allows passengers to book rides with drivers.")
+
+Person(passenger, "Passenger", "Uses the system to book rides.")
+Person(driver, "Driver", "Uses the system to offer rides.") 
+
+System_Ext(googlemaps, "Google Maps", "Provides maps and cities services.")
+System_Ext(aws, "AWS", "Hosts the application and its infrastructure.")
+System_Ext(whatsapp, "WhatsApp", "Desktop / Mobile")
+
+Rel(passenger, friendlytravel, "Uses") 
+Rel(driver, friendlytravel, "Uses")
+Rel(friendlytravel, googlemaps, "Uses for maps")
+Rel(friendlytravel, aws, "Hosted on")
+Rel(friendlytravel, whatsapp, "Uses for communication between users", "WhatsApp redirection")
+
+@enduml
