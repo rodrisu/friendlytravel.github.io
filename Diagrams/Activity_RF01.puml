@@ -1,0 +1,26 @@
+@startuml Activity Diagram RF01 - Registro de usuario
+!theme bluegray
+
+start
+
+:Ingresar datos personales;
+repeat
+    if (Datos completos?) then (si)
+        :Verificar datos ingresados;
+        if (Verificación exitosa?) then (si)
+            #green:Enviar email de confirmación;
+            :Redirigir a la página de inicio de sesión;
+            stop
+        else (no)
+
+            #red:Mostrar mensaje de error;
+            :Permitir reintentar registro;
+        endif
+    else (no)
+        #red:Mostrar mensaje de error;
+        :Permitir completar datos;
+    endif
+repeat while
+
+
+@enduml

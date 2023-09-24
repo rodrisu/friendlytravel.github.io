@@ -1,0 +1,63 @@
+@startuml Activity Diagram RF 04, 09, 12, 16 - Alto nivel
+!theme bluegray
+start
+:Ingresa a Friendly Travel;
+:Ingresar Criterios de Búsqueda;
+if (Usuario registrado?) then (Sí)
+    if (Usuario ha iniciado sesión?) then (Sí)
+        :Completar Datos de Búsqueda;
+        if (Datos de búsqueda válidos?) then (Sí)
+            :Realizar Búsqueda de Viajes;
+            if (Resultados encontrados?) then (Sí)
+                :Mostrar Lista de Viajes;
+                :Mostrar Detalles del Viaje;
+                if (Usuario puede contactar al conductor?) then (Sí)
+                    :Contactar al Conductor;
+                endif
+                if (Usuario puede reservar lugar?) then (Sí)
+                    :Reservar Lugar en el Viaje;
+                    if (Reserva exitosa?) then (Sí)
+                        :Mostrar Mensaje de Éxito;
+                    else (No)
+                        :Mostrar Mensaje de Error;
+                    endif
+                endif
+            else (No)
+                :Mostrar Mensaje de No se encontraron viajes;
+            endif
+        else (No)
+            :Mostrar Mensaje de Datos de Búsqueda Inválidos;
+            :Volver a Completar Datos de Búsqueda;
+        endif
+    else (No)
+        :Completar Datos de Búsqueda;
+        if (Datos de búsqueda válidos?) then (Sí)
+            :Realizar Búsqueda de Viajes;
+            if (Resultados encontrados?) then (Sí)
+                :Mostrar Lista de Viajes (Detalles Básicos);
+                :Mostrar Detalles Básicos del Viaje;
+            else (No)
+                :Mostrar Mensaje de No se encontraron viajes;
+            endif
+        else (No)
+            :Mostrar Mensaje de Datos de Búsqueda Inválidos;
+            :Volver a Completar Datos de Búsqueda;
+        endif
+    endif
+else (No)
+    :Completar Datos de Búsqueda;
+    if (Datos de búsqueda válidos?) then (Sí)
+        :Realizar Búsqueda de Viajes;
+        if (Resultados encontrados?) then (Sí)
+            :Mostrar Lista de Viajes (Detalles Básicos);
+            :Mostrar Detalles Básicos del Viaje;
+        else (No)
+            :Mostrar Mensaje de No se encontraron viajes;
+        endif
+    else (No)
+        :Mostrar Mensaje de Datos de Búsqueda Inválidos;
+        :Volver a Completar Datos de Búsqueda;
+    endif
+endif
+stop
+@enduml

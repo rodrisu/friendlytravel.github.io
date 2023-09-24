@@ -1,0 +1,33 @@
+@startuml Activity Diagram RF03 - Crear viaje
+!theme bluegray
+
+!define MENSAJE_ERROR #red:Mostrar Mensaje de Error;
+!define REINGRESAR_DATOS :Reingresar Datos del Viaje;
+
+start
+:Ingresa a la página para crear viaje;
+if (Usuario registrado y logueado?) then (Sí)
+    :Ingresar Datos del Viaje;
+    if (Datos válidos?) then (Sí)
+        :Realizar Validaciones;
+        if (Todas las validaciones pasan?) then (Sí)
+            :Crear Viaje;
+            if (Viaje creado exitosamente?) then (Sí)
+                #green:Mostrar Mensaje de Éxito;
+            else (No)
+                MENSAJE_ERROR
+                REINGRESAR_DATOS
+            endif
+        else (No)
+            MENSAJE_ERROR
+            REINGRESAR_DATOS
+        endif
+    else (No)
+        MENSAJE_ERROR
+        REINGRESAR_DATOS
+    endif
+else (No)
+    MENSAJE_ERROR
+endif
+stop
+@enduml

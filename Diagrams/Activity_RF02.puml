@@ -1,0 +1,24 @@
+@startuml Activity Diagram RF02 - Registro de vehículo
+!theme bluegray
+
+start
+
+:El usuario accede a la página de registro de vehículo;
+
+if (¿El usuario ya está registrado?) then (sí)
+    :Ingresar detalles del vehículo (marca, modelo, ..., foto);
+    :Enviar el formulario de registro;
+    :Validar los datos del vehículo;
+    if (¿Validación exitosa?) then (sí)
+        #green:Mostrar mensaje de registro exitoso;
+    else (no)
+        #red:Mostrar mensaje de error;
+        :Solicitar al usuario reintentar o cancelar el registro;
+    endif
+else (no)
+    stop
+endif
+
+stop
+
+@enduml

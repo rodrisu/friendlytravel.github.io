@@ -1,0 +1,32 @@
+@startuml Activity Diagram RF11 - Sistema de reputacion (Calificacion)
+!theme bluegray
+!define EMAIL recordatorio de calificación del viaje
+!define MENSAJE_OK Mostrar mensaje de agradeceimiento
+start
+:Pasada la fecha del viaje "X";
+if (Usuario participó del viaje "X"?) then (Sí)
+if (Usuario registrado y conductor?) then (Sí)
+    :Enviar #EMAIL# al pasajero;
+    :Recordatorio para calificar el viaje;
+    :Incluir link a la página de calificación;
+    :Esperar a que el pasajero califique;
+    #green:MENSAJE_OK;
+    stop
+else (No)
+    if (Usuario registrado y pasajero?) then (Sí)
+        :Enviar #EMAIL# al conductor;
+        :Recordatorio para calificar el viaje;
+        :Incluir link a la página de calificación;
+        :Esperar a que el conductor califique;
+        #green:MENSAJE_OK;
+        stop
+    else (No)
+        :No es posible calificar el viaje;
+        stop
+    endif
+endif
+else (No)
+:No es posible calificar el viaje;
+stop
+endif
+@enduml

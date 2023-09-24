@@ -1,0 +1,56 @@
+@startuml Activity Diagram RF04 y RF09 - Buscar Viaje y Listado de viajes
+!theme bluegray
+
+!define MENSAJE_DATOS_INVALIDOS #red:Mostrar Mensaje de Datos de Búsqueda Inválidos;
+!define MENSAJE_NO_VIAJES #darkorange:Mostrar Mensaje de No se encontraron viajes;
+
+start
+:Ingresa a Friendly Travel;
+:Ingresar Criterios de Búsqueda;
+if (Usuario registrado?) then (Sí)
+    if (Usuario ha iniciado sesión?) then (Sí)
+        :Completar Datos de Búsqueda;
+        if (Datos de búsqueda válidos?) then (Sí)
+            :Realizar Búsqueda de Viajes;
+            if (Resultados encontrados?) then (Sí)
+                :Mostrar Lista de Viajes;
+                #green:Mostrar Detalles del Viaje;
+            else (No)
+                MENSAJE_NO_VIAJES
+            endif
+        else (No)
+            MENSAJE_DATOS_INVALIDOS
+            :Volver a Completar Datos de Búsqueda;
+        endif
+    else (No)
+        :Completar Datos de Búsqueda;
+        if (Datos de búsqueda válidos?) then (Sí)
+            :Realizar Búsqueda de Viajes;
+            if (Resultados encontrados?) then (Sí)
+                :Mostrar Lista de Viajes (Detalles Básicos);
+                #green:Mostrar Detalles Básicos del Viaje;
+            else (No)
+                MENSAJE_NO_VIAJES
+            endif
+        else (No)
+            MENSAJE_DATOS_INVALIDOS
+            :Volver a Completar Datos de Búsqueda;
+        endif
+    endif
+else (No)
+    :Completar Datos de Búsqueda;
+    if (Datos de búsqueda válidos?) then (Sí)
+        :Realizar Búsqueda de Viajes;
+        if (Resultados encontrados?) then (Sí)
+            :Mostrar Lista de Viajes (Detalles Básicos);
+            #green:Mostrar Detalles Básicos del Viaje;
+        else (No)
+            MENSAJE_NO_VIAJES
+        endif
+    else (No)
+        MENSAJE_DATOS_INVALIDOS
+        :Volver a Completar Datos de Búsqueda;
+    endif
+endif
+stop
+@enduml

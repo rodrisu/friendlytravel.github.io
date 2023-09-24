@@ -1,0 +1,32 @@
+@startuml Activity Diagram RF12 - Contacto
+
+!theme bluegray
+
+!define REDIRECT Redirección
+
+start
+:El pasajero se loguea;
+if (Usuario ha iniciado sesión?) then (Sí)
+    :Ingresar Criterios de Búsqueda de Viaje;
+    :Realizar Búsqueda de Viajes;
+    if (Resultados encontrados?) then (Sí)
+        :Mostrar Lista de Viajes;
+        :Elegir viaje y clickear en "Contactar";
+        #green:REDIRECT al sitio de WhatsApp para contactar al conductor;
+        stop
+    else (No)
+        #darkorange:Mostrar Mensaje de No se encontraron viajes;
+    endif
+else (No)
+    :Ingresar Criterios de Búsqueda de Viaje;
+    :Realizar Búsqueda de Viajes;
+    if (Resultados encontrados?) then (Sí)
+        :Mostrar Lista de Viajes;
+    else (No)
+        #darkorange:Mostrar Mensaje de No se encontraron viajes;
+    endif
+    :El pasajero no tiene la opción de "Contactar" sin iniciar sesión;
+endif
+stop
+@enduml
+

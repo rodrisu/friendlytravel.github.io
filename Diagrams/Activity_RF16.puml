@@ -1,0 +1,32 @@
+@startuml Activity Diagram RF16 - Reserva de viaje
+!theme bluegray
+
+!define RESERVAR Reservar
+!define BUSCAR Buscar viaje
+!define INGRESAR Ingresar Criterios de Búsqueda de Viaje
+!define ELEGIR Elegir un viaje de la lista de resultados
+
+start
+:El pasajero se registra en la plataforma;
+:El pasajero inicia sesión;
+if (Usuario ha iniciado sesión?) then (Sí)
+    :BUSCAR;
+    :INGRESAR;
+    :Realizar Búsqueda de Viajes;
+    if (Resultados encontrados?) then (Sí)
+        :Mostrar Lista de Viajes;
+        :ELEGIR;
+        :RESERVAR el viaje elegido;
+        if (Reserva exitosa?) then (Sí)
+            #green:Mostrar Mensaje de Éxito;
+        else (No)
+            #red:Mostrar Mensaje de Error en la reserva;
+        endif
+    else (No)
+        #darkorange:Mostrar Mensaje de No se encontraron viajes;
+    endif
+else (No)
+    :Flujo de búsqueda de viaje con datos básicos;
+endif
+stop
+@enduml
