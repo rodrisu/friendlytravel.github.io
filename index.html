@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Heimdall</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'FRIENDLY TRAVEL',
+      repo: 'https://github.com/rodrisu/Friendly-Travel-Backend',
+      // logo: '/_media/icono_heimdall.png',
+      auto2top: true,
+      loadSidebar: true,
+      plugins: [
+        function (hook) {
+          const year = new Date().getFullYear();
+          var footer = `<hr/><footer>&copy; ${year} - Friendly Travel</footer>`;
+
+          hook.afterEach(function (html) {
+            return html + footer;
+          });
+        }
+      ]
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-jsx.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>
