@@ -2,29 +2,32 @@
 title: Friendly Travel's documentation homepage
 description: Bookmark this to keep an eye on this documentation updates!
 baseurl: /  # Set this to your repository name if using a custom domain, e.g., /my-repo
-url: https://username.github.io  # Update with your GitHub Pages URL
+url: https://rodrisu.github.io/friendlytravel.github.io
 
 # Theme settings (if using a Jekyll theme)
-theme: jekyll-theme-cayman  # Replace with your desired Jekyll theme
+# theme: jekyll-theme-cayman  # Replace with your desired Jekyll theme
 # theme: jekyll-theme-minimal
 
 # GitHub Pages settings
-github_username: username  # Your GitHub username
-repository: repository-name  # Your GitHub repository name
+github_username: rodrisu
+repository: friendlytravel.github.io
+branch: main
 
 # Build settings
 markdown: kramdown
 # exclude: ['Gemfile', 'Gemfile.lock', 'node_modules', 'vendor', '_config.dev.yml', 'Rakefile', 'README.md']
 
-# Navigation menu (if your theme supports it)
+# Navigation menu (if the theme supports it)
 # Add links to your site's navigation menu
-nav:
-  - text: Home
-    url: /
-  - text: About
-    url: /about
-  - text: Blog
-    url: /blog
+# nav:
+#   - text: Home
+#     url: /
+#   - text: About
+#     url: /about
+#   - text: Blog
+#     url: /blog
 
 # Customize additional settings as needed
+
+# CNAME: friendlytravel.com
 
