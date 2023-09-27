@@ -11,7 +11,7 @@ url: https://rodrisu.github.io/friendlytravel.github.io
 # GitHub Pages settings
 github_username: rodrisu
 repository: friendlytravel.github.io
-branch: main
+branch: develop
 
 # Build settings
 markdown: kramdown
