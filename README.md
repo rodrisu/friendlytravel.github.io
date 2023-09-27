@@ -2,7 +2,7 @@ Lo que se encuentra a continuación es un template para el README.md
 
 # Proyecto Final de Grado - Licenciatura en Tecnologías de la Información
 
-Bienvenido al repositorio de mi proyecto final de grado para la Licenciatura en Tecnologías de la Información. Este proyecto representa el trabajo y la investigación que he realizado como parte de mi programa académico.
+Bienvenido al repositorio de la documentación de mi proyecto final de grado para la Licenciatura en Tecnologías de la Información. Este proyecto representa el trabajo y la investigación que he realizado como parte de mi programa académico.
 
 ## Descripción
 
@@ -18,8 +18,8 @@ Mis principales objetivos en este proyecto son:
 
 ## Tecnologías Utilizadas
 
-- [Lista de tecnologías y herramientas utilizadas en el proyecto]
-  - Ejemplo: HTML, CSS, JavaScript, React, Node.js, MongoDB, etc.
+- Lista de tecnologías y herramientas utilizadas en el proyecto
+  - Java 17, AWS SAM, AWS Servicies, IntelliJ IDEA, Maven, Checkstyle
 
 ## Instalación
 
@@ -33,26 +33,12 @@ A continuación, se detallan los pasos necesarios para instalar y ejecutar este 
 
 Explica cómo utilizar o probar tu proyecto. Proporciona ejemplos de comandos o acciones que los usuarios deben seguir para obtener resultados.
 
-## Contribución
-
-Si deseas contribuir a este proyecto, sigue estos pasos:
-
-1. Fork del repositorio
-2. Crea una rama para tu contribución (`git checkout -b nueva-funcionalidad`)
-3. Realiza tus cambios y haz commit (`git commit -m 'Añade nueva funcionalidad'`)
-4. Haz push de la rama a tu repositorio fork (`git push origin nueva-funcionalidad`)
-5. Crea una solicitud de extracción (Pull Request) en este repositorio
-
-## Licencia
-
-Este proyecto está bajo la licencia [nombre de la licencia]. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
-
 ## Contacto
 
 Si tienes preguntas o sugerencias relacionadas con este proyecto, no dudes en contactarme:
 
-- Nombre: [Tu nombre]
-- Correo electrónico: [Tu correo electrónico]
+- Nombre: Rodrigo Serrón
+- Correo electrónico: rodrigo.serron@estudiantes.utec.edu.uy
 
 ## Agradecimientos
 
