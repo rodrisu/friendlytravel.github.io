@@ -14,7 +14,7 @@ repository: repository-name  # Your GitHub repository name
 
 # Build settings
 markdown: kramdown
-exclude: ['Gemfile', 'Gemfile.lock', 'node_modules', 'vendor', '_config.dev.yml', 'Rakefile', 'README.md']
+# exclude: ['Gemfile', 'Gemfile.lock', 'node_modules', 'vendor', '_config.dev.yml', 'Rakefile', 'README.md']
 
 # Navigation menu (if your theme supports it)
 # Add links to your site's navigation menu
