@@ -16,9 +16,6 @@ branch: develop
 # Build settings
 markdown: kramdown
 # exclude: ['Gemfile', 'Gemfile.lock', 'node_modules', 'vendor', '_config.dev.yml', 'Rakefile', 'README.md']
-
-name: google-docs-to-github
-uses: r7kamura/google-docs-to-github@v0.1.0
             
 
 # Navigation menu (if the theme supports it)
