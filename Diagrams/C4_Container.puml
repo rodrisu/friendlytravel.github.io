@@ -2,68 +2,68 @@
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-Person(passenger, "Passenger", "A person who wants to travel")
-Person(driver, "Driver", "A person who offers rides")
+Person(pasajero, "Pasajero", "Una persona que quiere viajar")
+Person(conductor, "Conductor", "Una persona que ofrece viajes")
 
 System_Boundary(c1, "Friendly Travel") {
 
-    ContainerDb(frontend_s3, "Frontend S3", "Object Storage", "Stores frontend assets")
+    ContainerDb(frontend_s3, "Frontend S3", "Almacenamiento de Objetos", "Almacena activos del frontend")
 
-    Container(cloudfront, "CloudFront", "CDN", "Distributes frontend")
+    Container(cloudfront, "CloudFront", "CDN", "Distribuye el frontend")
 
-    Container(web_app, "Web App", "ReactJS", "Delivers the UI")
+    Container(web_app, "Aplicación Web", "ReactJS", "Ofrece la interfaz de usuario")
 
-    Container(api, "API Gateway", "Java/ MVC", "Provides API for frontend")
+    Container(api, "Gateway de API", "Java/MVC", "Proporciona la API para el frontend")
 
-    ContainerDb(db, "Database", "DynamoDB", "Stores user profiles, rides, reviews")
+    ContainerDb(db, "Base de Datos", "DynamoDB", "Almacena perfiles de usuarios, viajes, calificaciones")
 
-    Container(lambda, "Lambda Functions", "Java", "Serverless functions")
+    Container(lambda, "Funciones Lambda", "Java", "Funciones sin servidor")
 
-    Container(textract, "Textract", "OCR Service", "Extracts text from images")
+    Container(textract, "Textract", "Servicio OCR", "Extrae texto de imágenes")
 
-    Container(images_s3, "Images S3", "Object Storage", "Stores images")
+    Container(images_s3, "Imágenes S3", "Almacenamiento de Objetos", "Almacena imágenes")
 
-    Container(cognito, "Cognito", "Auth Service", "Provides authentication")
+    Container(cognito, "Cognito", "Servicio de Autenticación", "Proporciona autenticación")
 
-    Container(cloudwatch, "CloudWatch", "Monitoring", "Metrics & logging")
+    Container(cloudwatch, "CloudWatch", "Monitoreo", "Métricas y registro")
 
-    Container(ses, "SES", "Email Service", "Sends emails")
+    Container(ses, "SES", "Servicio de Correo Electrónico", "Envía correos electrónicos")
 
-    Container(cloudformation, "CloudFormation", "IaC", "Manages infrastructure and services")
+    Container(cloudformation, "CloudFormation", "IaC", "Administra la infraestructura y servicios")
 
-    Rel(web_app, cloudfront, "Served via", "HTTP")
+    Rel(web_app, cloudfront, "Servido a través de", "HTTP")
 
-    Rel(cloudfront, frontend_s3, "Pulls files from")
+    Rel(cloudfront, frontend_s3, "Obtiene archivos de")
 
-    Rel(web_app, api, "Makes API calls to", "JSON/HTTPS")
+    Rel(web_app, api, "Realiza llamadas a la API a través de", "JSON/HTTPS")
 
-    Rel(web_app, cognito, "Uses for auth", "AWS SDK")
+    Rel(web_app, cognito, "Usa para autenticación a través de", "AWS SDK")
 
-    Rel(api, lambda, "Invokes", "JSON/HTTPS")
+    Rel(api, lambda, "Invoca a través de", "JSON/HTTPS")
 
-    Rel(lambda, textract, "Uses for OCR", "AWS SDK")
+    Rel(lambda, textract, "Usa para OCR a través de", "AWS SDK")
 
-    Rel(textract, images_s3, "Reads images from", "AWS SDK")
+    Rel(textract, images_s3, "Lee imágenes de", "AWS SDK")
 
-    Rel(lambda, db, "Reads & writes", "DynamoDB SDK")
+    Rel(lambda, db, "Lee y escribe en", "DynamoDB SDK")
 
     Rel(lambda, cloudwatch, "")
 
-    Rel(api, cloudwatch, "Sends logs & metrics to")
+    Rel(api, cloudwatch, "Envía registros y métricas a")
 
-    Rel(lambda, ses, "Uses to send emails")
+    Rel(lambda, ses, "Usa para enviar correos electrónicos")
 
-    Rel(cloudformation, api, "Deploys all services")
+    Rel(cloudformation, api, "Implementa todos los servicios")
 
 }
 
-System_Ext(googlemaps, "Google Maps", "Mapping API")
-System_Ext(whatsapp, "WhatsApp", "Desktop / Mobile")
+System_Ext(googlemaps, "Google Maps", "API de Mapas")
+System_Ext(whatsapp, "WhatsApp", "Escritorio/Móvil")
 
-Rel(web_app, googlemaps, "Uses for maps")
-Rel(web_app, whatsapp, "Uses for communication between users", "WhatsApp redirection")
+Rel(web_app, googlemaps, "Usa para mapas")
+Rel(web_app, whatsapp, "Usa para comunicación entre usuarios a través de", "Redirección de WhatsApp")
 
-Rel(passenger, web_app, "Uses")
-Rel(driver, web_app, "Uses")
+Rel(pasajero, web_app, "Usa")
+Rel(conductor, web_app, "Usa")
 
 @enduml

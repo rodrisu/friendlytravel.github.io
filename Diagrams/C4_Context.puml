@@ -2,19 +2,17 @@
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-System(friendlytravel, "Friendly Travel", "Allows passengers to book rides with drivers.")
+System(friendlytravel, "Friendly Travel", "Permite a los pasajeros reservar viajes con conductores.")
 
-Person(passenger, "Passenger", "Uses the system to book rides.")
-Person(driver, "Driver", "Uses the system to offer rides.") 
+Person(usuario, "Usuario", "Utiliza el sistema para ofrecer o buscar viajes.") 
 
-System_Ext(googlemaps, "Google Maps", "Provides maps and cities services.")
-System_Ext(aws, "AWS", "Hosts the application and its infrastructure.")
-System_Ext(whatsapp, "WhatsApp", "Desktop / Mobile")
+System_Ext(googlemaps, "Google Maps", "Proporciona servicios de mapas y ciudades.")
+System_Ext(aws, "AWS", "Aloja la aplicación y su infraestructura.")
+System_Ext(whatsapp, "WhatsApp", "Escritorio / Móvil")
 
-Rel(passenger, friendlytravel, "Uses") 
-Rel(driver, friendlytravel, "Uses")
-Rel(friendlytravel, googlemaps, "Uses for maps")
-Rel(friendlytravel, aws, "Hosted on")
-Rel(friendlytravel, whatsapp, "Uses for communication between users", "WhatsApp redirection")
+Rel(usuario, friendlytravel, "Utiliza")
+Rel(friendlytravel, googlemaps, "Utiliza para mapas")
+Rel(friendlytravel, aws, "Alojada en")
+Rel(friendlytravel, whatsapp, "Utiliza para la comunicación entre usuarios a través de", "Redirección de WhatsApp")
 
 @enduml
