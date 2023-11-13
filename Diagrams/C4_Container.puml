@@ -13,7 +13,7 @@ System_Boundary(c1, "Friendly Travel") {
 
     Container(web_app, "Aplicación Web", "ReactJS", "Ofrece la interfaz de usuario")
 
-    Container(api, "Gateway de API", "Java/MVC", "Proporciona la API para el frontend")
+    Container(api, "API Gateway", "Java/MVC", "Proporciona la API para el frontend")
 
     ContainerDb(db, "Base de Datos", "DynamoDB", "Almacena perfiles de usuarios, viajes, calificaciones")
 
@@ -59,9 +59,11 @@ System_Boundary(c1, "Friendly Travel") {
 
 System_Ext(googlemaps, "Google Maps", "API de Mapas")
 System_Ext(whatsapp, "WhatsApp", "Escritorio/Móvil")
+System_Ext(agesic, "AGESIC", "Servicio de Información")
 
 Rel(web_app, googlemaps, "Usa para mapas")
 Rel(web_app, whatsapp, "Usa para comunicación entre usuarios a través de", "Redirección de WhatsApp")
+Rel(web_app, agesic, "Utiliza el servicio de información de")
 
 Rel(pasajero, web_app, "Usa")
 Rel(conductor, web_app, "Usa")
