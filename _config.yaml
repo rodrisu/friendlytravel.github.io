@@ -11,11 +11,12 @@ url: https://rodrisu.github.io/friendlytravel.github.io
 # GitHub Pages settings
 github_username: rodrisu
 repository: friendlytravel.github.io
-branch: main
+branch: develop
 
 # Build settings
 markdown: kramdown
 # exclude: ['Gemfile', 'Gemfile.lock', 'node_modules', 'vendor', '_config.dev.yml', 'Rakefile', 'README.md']
+            
 
 # Navigation menu (if the theme supports it)
 # Add links to your site's navigation menu

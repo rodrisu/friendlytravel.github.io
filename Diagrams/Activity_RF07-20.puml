@@ -1,0 +1,36 @@
+@startuml Activity Diagram RF07 - RF20
+!theme bluegray
+
+start
+
+:Ingresar datos personales;
+repeat
+    if (Datos completos?) then (si)
+        :Leer datos de la foto de la cedula;
+        if (Datos leídos correctamente?) then (si)
+            :Comparar datos de la cedula con datos ingresados;
+            if (Datos coincidentes?) then (si)
+                :Llamar al servicio de DNIC "wsServicioDeInformacion" con el número de documento;
+                if (Validación por parte de DNIC exitosa?) then (si)
+                    #green:Enviar email de confirmación;
+                    :Redirigir a la página de inicio de sesión;
+                    stop
+                else (no)
+                    #red:Informar al usuario que no fue posible validar el documento contra DNIC;
+                    :Permitir reintentar registro;
+                endif
+            else (no)
+                #red:Mostrar mensaje de error y solicitar subir una imagen con mayor calidad;
+                :Permitir reintentar registro;
+            endif
+        else (no)
+            #red:Mostrar mensaje de error y solicitar subir una imagen con mayor calidad;
+            :Permitir reintentar registro;
+        endif
+    else (no)
+        #red:Mostrar mensaje de error;
+        :Permitir completar datos;
+    endif
+repeat while
+
+@enduml
